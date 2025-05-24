@@ -17,6 +17,9 @@ public class Server {
                     PrintWriter out = new PrintWriter(acceptedConnection.getOutputStream());
                     BufferedReader inp = new BufferedReader(new InputStreamReader(acceptedConnection.getInputStream()));
                     out.println("HTTP/1.1 200 OK from the server");
+                    out.close();
+                    inp.close();
+                    acceptedConnection.close();
                 }catch(IOException e){
                     e.printStackTrace();
                 }
